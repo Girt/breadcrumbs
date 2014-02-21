@@ -18,6 +18,11 @@ class Breadcrumb
 	private $url = NULL;
 	
 	/**
+	 * Breadcrumb Parameters array
+	 */
+	private $params = array();
+        
+	/**
 	 * Breadcrumb Factory
 	 */
 	public static function factory()
@@ -62,5 +67,26 @@ class Breadcrumb
 	public function get_url()
 	{
 		return $this->url;
+	}
+        
+        
+	/**
+	 * Set Parameter
+	 */
+	public function set($param, $value)
+	{
+		$this->params[$param] = $value;
+		
+		return $this;
+	}
+        
+        
+	/**
+	 * Get Parameter
+	 */
+	public function get($param)
+	{
+            
+		return Arr::get($this->params, $param);
 	}
 }
